@@ -1,7 +1,7 @@
 #pragma once
 #include "Robot.h"
 class npc_bot :
-	public Robot
+	public robot
 {
 public:
 	npc_bot();

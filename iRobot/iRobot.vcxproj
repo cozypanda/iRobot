@@ -124,6 +124,7 @@
     <ClCompile Include="npc_bot.cpp" />
     <ClCompile Include="npc_bugger.cpp" />
     <ClCompile Include="patchbot.cpp" />
+    <ClCompile Include="point2d.cpp" />
     <ClCompile Include="robot.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="check_if_int.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="npc_bot.h" />
     <ClInclude Include="npc_bugger.h" />
     <ClInclude Include="patchbot.h" />
+    <ClInclude Include="point2d.h" />
     <ClInclude Include="robot.h" />
     <ClInclude Include="world.hpp" />
   </ItemGroup>

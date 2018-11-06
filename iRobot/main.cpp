@@ -7,5 +7,6 @@
 
 int main(int argc, char* argv)
 {
-	world a = world::createWorld(argv);
+	std::string test_file = "test1234.txt";
+	world a = world::world(test_file);
 }
