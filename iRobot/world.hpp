@@ -4,17 +4,21 @@
 #include <string>
 #include <list>
 
-
+/* Klasse fuer die Speicherung der Umgebungskarte samt der vorkommenden Roboter*/
 class world
 {
 public:
-	world(const std::string &path_to_file);
+	world();
+	~world();
+	static void createWorld(const std::string &path_to_file, world &world);
 private:
-	std::vector<char> board;
-	std::list<char> robots;
+	std::vector<char> board; // Speichert die Umgebungskarte
+	std::list<char> robots; //  Enthaelt die Roboter
 	int number_of_rows, row_length;
 	static std::string const robot_symbols;
-	static void createWorld(const std::string &path_to_file, world &world);
+	static std::string const map_symbols;
+	
+	friend void write_to_output_file(const world &world);
 };
 
 

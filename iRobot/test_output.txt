@@ -6,4 +6,6 @@
 ##d###d#
 #~ ~M34#
 #~p~M P#
-#p##MMMM
+####MMMM
+Test line 1
+Test 2 :)
