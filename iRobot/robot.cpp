@@ -1,16 +1,10 @@
 #include "robot.h"
 
 robot::robot(int position_x, int position_y)
-{
-	location.setX(position_x);
-	location.setY(position_y);
-	is_alive = true;
-}
-robot::robot()
-{
-
-}
-
+	: position_x_(position_x), 
+	position_y_(position_y), 
+	is_alive_(true)
+{}
 
 robot::~robot()
 {

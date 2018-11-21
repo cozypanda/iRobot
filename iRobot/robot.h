@@ -1,16 +1,16 @@
 #ifndef INCLUDED_PATCHBOT_ROBOT_HPP
 #define INCLUDED_PATCHBOT_ROBOT_HPP
- 
-#include "point2d.h"
+
 
 class robot
 {
-private:
-	point2d location;
-	bool is_alive;
-public:
+protected:
+	int position_x_;
+	int position_y_;
+	bool is_alive_;
 	robot(int position_x, int position_y);
-	robot();
+public:	
+	robot() = delete;
 	~robot();
 };
 #endif

@@ -18,25 +18,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="world.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="check_if_int.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="npc_bot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bot_wheels.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bot_feet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="npc_bugger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="robot.cpp">
@@ -46,6 +31,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="point2d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="npc_bot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,15 +47,6 @@
     <ClInclude Include="npc_bot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bot_wheels.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bot_feet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="npc_bugger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="point2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enum_terrain.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

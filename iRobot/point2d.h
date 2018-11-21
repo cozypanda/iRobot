@@ -9,7 +9,7 @@ private:
 	int y;
 public:
 	point2d(int x_coordinate, int y_coordinate);
-	point2d();
+	point2d() = delete;
 	~point2d();
 	int getX();
 	int getY();

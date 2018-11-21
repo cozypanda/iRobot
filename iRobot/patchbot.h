@@ -4,7 +4,7 @@ class patchbot :
 	public robot
 {
 public:
-	patchbot();
+	patchbot(int position_x, int position_y); //TODO create call to superclass for all subclasses of robot (feet, wheels.. as enum not seperate classes?)
 	~patchbot();
 };
 

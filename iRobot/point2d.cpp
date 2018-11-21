@@ -2,17 +2,9 @@
 
 
 
-point2d::point2d(int x_coordinate, int y_coordinate) 
-
-{
-	x = x_coordinate;
-	y = y_coordinate;
-}
-
-point2d::point2d()
-{
-
-}
+point2d::point2d(int x_coordinate = -1, int y_coordinate = -1)
+	: x(x_coordinate), y(y_coordinate)
+{}
 
 point2d::~point2d()
 {
