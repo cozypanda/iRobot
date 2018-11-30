@@ -16,4 +16,4 @@ public:
 	void setX(int new_x_value);
 	void setY(int new_y_value);
 };
-#endif
+#endif // !INCLUDED_PATCHBOT_POINT2D_HPP

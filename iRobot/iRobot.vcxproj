@@ -121,10 +121,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="exceptions.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="npc_bot.cpp" />
-    <ClCompile Include="patchbot.cpp" />
-    <ClCompile Include="point2d.cpp" />
     <ClCompile Include="robot.cpp" />
     <ClCompile Include="check_if_int.cpp" />
     <ClCompile Include="world.cpp" />
@@ -132,10 +130,8 @@
   <ItemGroup>
     <ClInclude Include="check_if_int.hpp" />
     <ClInclude Include="enum_terrain.hpp" />
-    <ClInclude Include="npc_bot.h" />
-    <ClInclude Include="patchbot.h" />
-    <ClInclude Include="point2d.h" />
-    <ClInclude Include="robot.h" />
+    <ClInclude Include="exceptions.hpp" />
+    <ClInclude Include="robot.hpp" />
     <ClInclude Include="world.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

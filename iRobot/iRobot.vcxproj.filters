@@ -27,36 +27,24 @@
     <ClCompile Include="robot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="patchbot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="point2d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="npc_bot.cpp">
+    <ClCompile Include="exceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="world.hpp">
+    <ClInclude Include="enum_terrain.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="check_if_int.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="npc_bot.h">
+    <ClInclude Include="world.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="robot.h">
+    <ClInclude Include="robot.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="patchbot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="point2d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="enum_terrain.hpp">
+    <ClInclude Include="exceptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
