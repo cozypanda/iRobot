@@ -3,8 +3,10 @@
 #include <fstream>
 #include <cstdlib> // for exit()
 #include <iterator> // for std::next()
+
 #include "world.hpp"
 #include "exceptions.hpp"
+#include "graphic.hpp"
 
 /* Schreibt zu erst die Hoehe, dann die Breite der Karte und 
  anschliessend die Umgebungskarte samt Robotern in eine Ausgabedatei
@@ -39,8 +41,6 @@ void write_to_output_file(const world &world, const std::string &outputfile)
 		i++;
 
 	}
-
-
 		
 	for (int i = 0; i < world.board_.size(); i++)
 	{
@@ -75,28 +75,82 @@ void write_to_output_file(const world &world, const std::string &outputfile)
 			file_writer << std::endl;
 		
 	}
-	file_writer.close();
+	
 }
 
+void write_graphic_to_file(const std::string &file, const graphic &graphic) {
+	std::ofstream file_writer(file, std::ofstream::binary);
+	if (!file_writer)
+		throw exceptions_file_error();
 
+	//Schreibe Headerdaten
+	char short_to_char[2];
+	file_writer << graphic.header_data_.id_length_;
+	file_writer << graphic.header_data_.color_map_type_;
+	file_writer << graphic.header_data_.data_type_;
+
+	short_to_char[0] = graphic.header_data_.color_map_origin_ & 0xff;
+	short_to_char[1] = (graphic.header_data_.color_map_origin_ >> 8) & 0xff;
+	file_writer << short_to_char[0] << short_to_char[1];
+
+	short_to_char[0] = graphic.header_data_.color_map_length_ & 0xff;
+	short_to_char[1] = (graphic.header_data_.color_map_length_ >> 8) & 0xff;
+	file_writer << short_to_char[0] << short_to_char[1];
+
+	file_writer << graphic.header_data_.color_map_depth_;
+
+	short_to_char[0] = graphic.header_data_.x_origin_ & 0xff;
+	short_to_char[1] = (graphic.header_data_.x_origin_ >> 8) & 0xff;
+	file_writer << short_to_char[0] << short_to_char[1];
+
+	short_to_char[0] = graphic.header_data_.y_origin_ & 0xff;
+	short_to_char[1] = (graphic.header_data_.y_origin_ >> 8) & 0xff;
+	file_writer << short_to_char[0] << short_to_char[1];
+
+	short_to_char[0] = graphic.header_data_.width_ & 0xff;
+	short_to_char[1] = (graphic.header_data_.width_ >> 8) & 0xff;
+	file_writer << short_to_char[0] << short_to_char[1];
+
+	short_to_char[0] = graphic.header_data_.height_ & 0xff;
+	short_to_char[1] = (graphic.header_data_.height_ >> 8) & 0xff;
+	file_writer << short_to_char[0] << short_to_char[1];
+
+	file_writer << graphic.header_data_.bits_per_pixel_;
+	file_writer << graphic.header_data_.attributes_;
+
+	//Schreibe Pixeldaten
+	for (int i = 0; i < graphic.image_data_.size(); i++) {
+		const pixel_rgb* pixel = &(graphic.image_data_.at(i));
+		file_writer << pixel->b_ << pixel->g_ << pixel->r_ << pixel->a_;
+	}
+
+	//Schreibe Footerdaten
+
+	for (int i = 0; i < 8; i++)
+		file_writer << '\0';
+	file_writer << "TRUEVISION-XFILE" << '.' << '\0';
+
+}
+
+/*
 int main(int argc, char** argv)
 {
 	// Pruefung, ob genau ein Argument uebergeben wurde /// aktivieren fuer live
 	if (argc != 2)
 	{
 		std::cout << "Invalid amount of arguments." << std::endl;
-		exit(-1);
+		return;
 	}
 		
 	world* a;
 	try
 	{
-		a = new world(world::createWorld(*(argv+1)));
+		a = new world(world::create_world(*(argv+1)));
 	}
 	catch (const std::exception& except)
 	{
 		std::cerr << "World creation error: " << except.what() << std::endl;
-		exit(-1);
+		return;
 	}
 	
 	try
@@ -109,8 +163,27 @@ int main(int argc, char** argv)
 	catch (const std::exception& except)
 	{
 		std::cerr << "ERROR: " << except.what() << std::endl;
-		exit(-1);
+		return;
 	}
-}
 
+	delete a; //TODO: obsolet sobald auf smart_pointer umgestellt wurde
+}*/
+
+int main(int argc, char** argv) {
+	graphic* g = nullptr;
+	try {
+		g = new graphic(graphic::create_graphic(*(argv + 1)));
+	}
+	catch (const std::exception &except) {
+		std::cerr << "ERROR: " << except.what() << std::endl;
+	}
+
+	std::string suffix = "_output.tga";
+	std::string outputfile = *(argv + 1); // init mit Inputfilename
+	outputfile.replace(outputfile.size() - 4, 4, suffix); // Erweitert den Filename um den angegebenen Suffix
+	if (g != nullptr)
+		write_graphic_to_file(outputfile, *g);
+	delete g;
+	return 0;
+}
 

@@ -1,5 +1,6 @@
 #ifndef INCLUDED_PATCHBOT_ENUM_TERRAIN_HPP
 #define INCLUDED_PATCHBOT_ENUM_TERRAIN_HPP
+
 enum class terrain
 {
 	main_server,
@@ -19,6 +20,7 @@ enum class terrain
 	wall_rock,
 	unknown_terrain
 };
+
 #endif // !INCLUDED_PATCHBOT_ENUM_TERRAIN_HPP
 
 

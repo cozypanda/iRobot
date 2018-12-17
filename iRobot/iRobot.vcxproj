@@ -125,6 +125,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="robot.cpp" />
     <ClCompile Include="check_if_int.cpp" />
+    <ClCompile Include="graphic.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +133,7 @@
     <ClInclude Include="enum_terrain.hpp" />
     <ClInclude Include="exceptions.hpp" />
     <ClInclude Include="robot.hpp" />
+    <ClInclude Include="graphic.hpp" />
     <ClInclude Include="world.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

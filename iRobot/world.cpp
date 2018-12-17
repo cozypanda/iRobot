@@ -1,45 +1,27 @@
 #include "world.hpp"
+
 #include <fstream>
 #include <iostream>
+
 #include "check_if_int.hpp"
 #include "exceptions.hpp" 
 
 
 
-	world::world(int number_of_rows, int row_length, const std::vector<terrain> &terrain, const std::list<robot> &robots) 
-		: number_of_rows_(number_of_rows), row_length_(row_length), board_(terrain), robots_(robots)
-	{
-		
-	}
-	world::~world()
-	{
-		
-	}
+	world::world(int number_of_rows, int row_length, 
+		const std::vector<terrain> &terrain, 
+		const std::list<robot> &robots) 
+		: number_of_rows_(number_of_rows), 
+		row_length_(row_length),
+		board_(terrain), 
+		robots_(robots)
+	{}
 
-	/*robot world::robot_at_position(int position)
-	{
-		
-		if ((unsigned int)position >= (int)robots_new_.size)
-			throw("Invalid position"); //TODO : nicht thrown sondern return?
-		
-			robot* temp = robots_new_.front;
-			int i = 0;
-				while (i < position)
-				{
-					temp = temp + 1;
-					i++;
-				}
-					
-				return *temp;
-		
-	}*/
-
-
+	
 	/* liest uebergebene Config-File der Umgebungskarte ein und legt diese  
 	samt der dort vorkommenden Roboter in die entsprechende Datenstruktur ab */
 
-
-	world world::createWorld(const std::string &path_to_file)
+	world world::create_world(const std::string &path_to_file)
 	{
 
 		std::ifstream file_reader(path_to_file);
@@ -47,7 +29,6 @@
 		if (!file_reader)
 			throw exceptions_file_error();
 
-		
 		std::string line_read;
 		
 		// Einlesen der Kartendimensionen
@@ -63,7 +44,6 @@
 
 
 		int counter_lines_read = 0;
-		int counter_chars_read = 0;
 		bool patchbot_start_found = false;
 		bool patchbot_goal_found = false;
 		
@@ -110,8 +90,7 @@
 			}
 			
 		}
-		file_reader.close();
-
+		
 		//Pruefung, ob Config korrekte Anzahl an Zeilen, einen Patchbot-Startpunkt sowie ein Ziel beinhaltet hat
 		if (counter_lines_read != world_dimensions[1])
 			throw exceptions_row_amount_mismatch();
@@ -120,7 +99,7 @@
 		if (patchbot_goal_found == false)
 			throw exceptions_missing_main_server();
 
-		world new_w = world(world_dimensions[1], world_dimensions[0], world_terrains, world_robots);
+		world new_w(world_dimensions[1], world_dimensions[0], world_terrains, world_robots);
 		
 		return new_w;
 	}

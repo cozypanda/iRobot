@@ -1,8 +1,10 @@
 #ifndef INCLUDED_PATCHBOT_WORLD_HPP
 #define INCLUDED_PATCHBOT_WORLD_HPP
+
 #include <vector>
 #include <string>
 #include <list>
+
 #include "enum_terrain.hpp"
 #include "robot.hpp"
 #include "exceptions.hpp"
@@ -11,11 +13,13 @@
 class world
 {
 public:
-	world(int number_of_rows, int row_length, const std::vector<terrain> &terrain,const std::list<robot> &robots);
+	world(int number_of_rows, int row_length, 
+		const std::vector<terrain> &terrain,
+		const std::list<robot> &robots);
 	world() = delete;
-	~world();
-	robot robot_at_position(int position);
-	static world createWorld(const std::string &path_to_file);
+		
+	static world create_world(const std::string &path_to_file);
+
 private:
 	std::vector<terrain> board_; // Speichert die Umgebungskarte
 	std::list<robot> robots_; //  Enthaelt die Roboter
