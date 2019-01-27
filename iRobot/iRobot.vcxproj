@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <keyword>Qt4VSv1.0</keyword>
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{1DA612AB-187E-4D83-BDFB-55EE66DD2496}</ProjectGuid>
     <RootNamespace>iRobot</RootNamespace>
@@ -123,6 +124,9 @@
   <ItemGroup>
     <ClCompile Include="exceptions.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mvp_model.cpp" />
+    <ClCompile Include="mvp_presenter.cpp" />
+    <ClCompile Include="mvp_view.cpp" />
     <ClCompile Include="robot.cpp" />
     <ClCompile Include="check_if_int.cpp" />
     <ClCompile Include="world.cpp" />
@@ -131,10 +135,16 @@
     <ClInclude Include="check_if_int.hpp" />
     <ClInclude Include="enum_terrain.hpp" />
     <ClInclude Include="exceptions.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="robot.hpp" />
     <ClInclude Include="world.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Qt5Version_x0020_x64="msvc2017_64" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
